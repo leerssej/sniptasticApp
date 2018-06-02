@@ -1,5 +1,8 @@
 const dumpAllCode = () => Object.values(localStorage);
 const dumpAllKeys = () => Object.keys(localStorage);
+const regex = /","/
+const replace = 5;
+const injectLineBreaks = str => str.replace(regex, replaceStr)
 
 $(document).ready(function () {
   $('.setData').on('click', function() {
@@ -17,16 +20,19 @@ $(document).ready(function () {
     let desiredName = $('#nameInputField').val();
     let retrievedData = localStorage.getItem(desiredName);
     console.log(retrievedData);
-    $('.display').text(retrievedData);
-    
+    packagedData = retrievedData
+    $('.display').text(packagedData);
+    hljs.initHighlighting();
   });
   
   $('.viewAll').click(function (e) { 
     e.preventDefault();
     // console.log('On the road to ALL');
     let allCodeArr = dumpAllCode();
-    console.log(JSON.stringify(allCodeArr));
-    $('.display').text(allCodeArr);
+    let strungout = JSON.stringify(allCodeArr);
+    let parsedOut = JSON.parse(strungout);
+    console.log(parsedOut);
+    $('.code').text(parsedOut);
   });
 
   // $('.nameField').keyup(function (e) { 
@@ -34,4 +40,13 @@ $(document).ready(function () {
   //   $('.debug').text(nameInputField);
   // });
 
+});
+
+$(document).click(function () {
+  let desiredName = $('#nameInputField').val();
+  let retrievedData = localStorage.getItem(desiredName);
+  console.log('oy');
+  packagedData = `<code>${retrievedData}</code><script>hljs.initHighlighting()</script>`
+  $('.display').html(packagedData);
+  hljs.initHighlighting();
 });
