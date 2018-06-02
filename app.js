@@ -16,40 +16,50 @@ $(document).ready(function () {
 
   });
 
-  $('.getData').click( function () { 
+  $('.getData').click( function () {
+    $('.code').html('');
     let desiredName = $('#nameInputField').val();
     let retrievedData = localStorage.getItem(desiredName);
     console.log(retrievedData);
-    packagedData = retrievedData
-    $('.code').text(packagedData);
-    hljs.initHighlighting();
+    $('.code').text(retrievedData);
+    hljs.highlightBlock($('.display').get(0))
   });
   
   $('.viewAll').click(function () { 
     // e.preventDefault();
-    // console.log('On the road to ALL');
+    console.log('On the road to ALL');
+    $('.sample').text('');
+    $('.display').text('');
     let allCodeArr = dumpAllCode();
-    let strungout = JSON.stringify(allCodeArr);
-    let codeWithBreaks = injectLineBreaks(strungout);
-    console.log(codeWithBreaks);
-    let parsedOut = JSON.parse(codeWithBreaks);
-    console.log(parsedOut);
-    $('.code').text(parsedOut);
-    hljs.initHighlighting();
+    allCodeArr.map(snippet => $('.display').append(`<code class='all'>${snippet}</code>
+    <br>`));
+    // $('#empty').remove();
+    // $('.code').remove();
+    // let strungout = JSON.stringify(allCodeArr);
+    // let codeWithBreaks = injectLineBreaks(strungout);
+    // console.log(codeWithBreaks);
+    // let parsedOut = JSON.parse(codeWithBreaks);
+    // console.log(parsedOut);
+    // hljs.highlightBlock($('display').get(0));
   });
-
+  
   // $('.nameField').keyup(function (e) { 
-  //   let nameInputField = $('.nameField').val();
-  //   $('.debug').text(nameInputField);
-  // });
-
-});
-
-// $(document).click(function () {
-//   let desiredName = $('#nameInputField').val();
-//   let retrievedData = localStorage.getItem(desiredName);
-//   console.log('oy');
-//   packagedData = `<code>${retrievedData}</code><script>hljs.initHighlighting()</script>`
-//   $('.display').html(packagedData);
-//   hljs.initHighlighting();
+    //   let nameInputField = $('.nameField').val();
+    //   $('.debug').text(nameInputField);
+    // });
+    
+  });
+  
+// $(document).click(function (e) {
+//   console.log('On the road to ALL');
+//   let allCodeArr = dumpAllCode();
+//   allCodeArr.map(snippet => $('.display').append(`<code class='all'>${snippet}</code>
+//     <br>`));
+// //   let desiredName = $('#nameInputField').val();
+// //   let retrievedData = localStorage.getItem(desiredName);
+// //   console.log('oy');
+// //   packagedData = `<code>${retrievedData}</code><script>hljs.initHighlighting()</script>`
+// //   $('.display').html(packagedData);
+//   console.log(e)
+//   hljs.highlightBlock($(document).get(0));
 // });
