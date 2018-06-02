@@ -1,65 +1,38 @@
-const dumpAllCode = () => Object.values(localStorage);
-const dumpAllKeys = () => Object.keys(localStorage);
-const regex = /","/
-const replaceStr = `","<br>","`;
-const injectLineBreaks = str => str.replace(regex, replaceStr)
+const getAllCode = () => Object.values(localStorage);
+const getAllKeys = () => Object.keys(localStorage);
+const cleanSlate = () => {
+  $('.sample').text('');
+  $('.display').text('');
+};
+const injectCode = snippet => {
+  $('.display')
+    .append(`<code>${snippet}</code>
+        <br>`);
+};
+const highlightCode = () => hljs.highlightBlock($('.display').get(0));
+
 
 $(document).ready(function () {
+
   $('.setData').on('click', function() {
-    let snippetName = $('#nameInputField').val();
-    let snippetCode = $('#codeInputField').val();
-    console.log(snippetName);
-    console.log(snippetCode);
-
-    localStorage.setItem(snippetName, snippetCode);
-    $('.nameField').val('');
-
+    let snippetKey = $('#nameInputField').val();
+    let snippetValue = $('#codeInputField').val();
+    localStorage.setItem(snippetKey, snippetValue);
+    $('.nameField').val(''); // empty the NameField on save
   });
 
   $('.getData').click( function () {
-    $('.code').html('');
+    cleanSlate();
     let desiredName = $('#nameInputField').val();
-    let retrievedData = localStorage.getItem(desiredName);
-    console.log(retrievedData);
-    $('.code').text(retrievedData);
-    hljs.highlightBlock($('.display').get(0))
+    let snippet = localStorage.getItem(desiredName);
+    injectCode(snippet);
+    highlightCode();
   });
   
-  $('.viewAll').click(function () { 
-    // e.preventDefault();
-    console.log('On the road to ALL');
-    $('.sample').text('');
-    $('.display').text('');
-    let allCodeArr = dumpAllCode();
-    allCodeArr.map(snippet => $('.display').append(`<code class='all'>${snippet}</code>
-    <br>`));
-    // $('#empty').remove();
-    // $('.code').remove();
-    // let strungout = JSON.stringify(allCodeArr);
-    // let codeWithBreaks = injectLineBreaks(strungout);
-    // console.log(codeWithBreaks);
-    // let parsedOut = JSON.parse(codeWithBreaks);
-    // console.log(parsedOut);
-    // hljs.highlightBlock($('display').get(0));
+  $('.getAll').click(function () { 
+    cleanSlate();
+    getAllCode().map(snippet => injectCode(snippet));
+    highlightCode();
   });
   
-  // $('.nameField').keyup(function (e) { 
-    //   let nameInputField = $('.nameField').val();
-    //   $('.debug').text(nameInputField);
-    // });
-    
-  });
-  
-// $(document).click(function (e) {
-//   console.log('On the road to ALL');
-//   let allCodeArr = dumpAllCode();
-//   allCodeArr.map(snippet => $('.display').append(`<code class='all'>${snippet}</code>
-//     <br>`));
-// //   let desiredName = $('#nameInputField').val();
-// //   let retrievedData = localStorage.getItem(desiredName);
-// //   console.log('oy');
-// //   packagedData = `<code>${retrievedData}</code><script>hljs.initHighlighting()</script>`
-// //   $('.display').html(packagedData);
-//   console.log(e)
-//   hljs.highlightBlock($(document).get(0));
-// });
+});
