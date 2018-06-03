@@ -4,6 +4,10 @@ const cleanSlate = () => {
   $('.sample').text('');
   $('.display').text('');
 };
+const clearFields = () => {
+  $('.nameField').val('');
+  $('.codeField').val('');
+}
 const injectCode = (snippet, i = 0) => {
   $('.display')
     .append(`<code data-id=${i}>${snippet}</code>
@@ -26,7 +30,7 @@ const showAlert = (message, className) => {
   // Insert alert
   container.insertBefore(div, form);
 
-  // Timeout after 3 sec
+  // Timeout after 1.5 sec
   setTimeout(function () {
     document.querySelector('.alert').remove();
   }, 1500);
@@ -47,8 +51,11 @@ $(document).ready(function () {
     } else {
       // Add snippet to localStorage
       localStorage.setItem(snippetKey, snippetValue);
+      // Show success
+      showAlert('Snippet Added!', 'success');
+      // Clear fields
+      clearFields();
     }
-      $('.nameField').val(''); // empty the NameField on save
   });
 
   $('.getData').click(function() {
