@@ -36,19 +36,10 @@ $(document).ready(function () {
   });
 
   $('.viewContainer').click(function(e) { 
-    // e.preventDefault();
     let targetDataId;
     if (e.target.closest("code")) {
       targetDataId = e.target.closest("code").attributes["0"].nodeValue;
     }
-    // let parentTargetDataId = e.target.parentElement.attributes["0"].nodeValue;
-    // console.clear();
-    // console.dir(targetDataId)
-    // console.dir(parentTargetDataId)
-    // console.dir(e.target.parentElement)
-    // console.dir(e.target.closest("code"))
-    // console.dir(e.target.closest("code").attributes["0"].nodeValue);
-    // console.dir($(this).closest("code"))
     if (targetDataId) {
       console.dir(targetDataId)
     } else {
