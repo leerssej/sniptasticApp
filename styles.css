@@ -2,6 +2,28 @@ code {
   cursor: pointer;
 }
 
+.success,
+.error {
+  color: white;
+  padding: 5px;
+  margin: 5px 0 15px 0;
+} 
+.success { 
+  background: green;
+} 
+.error {
+  background: red;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
 /*
 Monokai style - ported by Luigi Maselli - http://grigio.org
 */
