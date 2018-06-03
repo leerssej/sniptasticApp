@@ -16,10 +16,12 @@ Goals:
 - [x] protect entries from being made if fields are blank
 - [x] display warning alert for attempting blank entry
 - [x] display success alert for successful entry
-- [ ] delete entries
+- [x] delete entries
 - [ ] select from dropdown
-- [ ] button for selecting the clicked on code snippet
-- [ ] code transformation into vsCode snippet syntax
-- [ ] right click for copy of this
+- [ ] additional fields added for vsCode.json snippet generation
+- [ ] additional right slateSpan added for vsCode.json snippet generation
+- [ ] button for transforming the clicked on code snippet
+- [ ] mouseup transformation into vsCode snippet syntax
+- [ ] right click for copy of code transform
 - [ ] formatting upgrade
 - [ ] UI styling

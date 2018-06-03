@@ -42,18 +42,12 @@ $(document).ready(function () {
   $('.setData').click(function() {
     let snippetKey = $('#nameInputField').val();
     let snippetValue = $('#codeInputField').val();
-
     // Validate
     if (snippetKey === '' || snippetValue === '') {
-      // Error alert
-      console.log("empty!");
       showAlert('Please fill in all fields', 'error');
     } else {
-      // Add snippet to localStorage
       localStorage.setItem(snippetKey, snippetValue);
-      // Show success
       showAlert('Snippet Added!', 'success');
-      // Clear fields
       clearFields();
     }
   });
@@ -73,11 +67,16 @@ $(document).ready(function () {
   });
   
   $('.deleteData').click(function() {
-    cleanSlate();
     let desiredName = $('#nameInputField').val();
     let snippet = localStorage.getItem(desiredName);
-    injectCode(snippet);
-    highlightCode();
+    // Validate available 
+    if (desiredName === '' || !snippet ) {
+      showAlert('Not Found', 'error');
+    } else {
+      localStorage.removeItem(desiredName);
+      showAlert('Snippet removed!', 'success');
+      clearFields();
+    }
   });
 
   $('.viewContainer').click(function(e) { 
