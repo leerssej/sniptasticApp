@@ -65,10 +65,18 @@ $(document).ready(function () {
     injectCode(snippet);
     highlightCode();
   });
-
+  
   $('.getAll').click(function() { 
     cleanSlate();
     getAllCode().map((snippet, i) => injectCode(snippet, i));
+    highlightCode();
+  });
+  
+  $('.deleteData').click(function() {
+    cleanSlate();
+    let desiredName = $('#nameInputField').val();
+    let snippet = localStorage.getItem(desiredName);
+    injectCode(snippet);
     highlightCode();
   });
 
