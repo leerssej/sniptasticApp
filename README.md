@@ -13,7 +13,9 @@ Goals:
 - [x] display all snippets
 - [x] search for a snippet using the name
 
-- [ ] protect entries from being made if fields are blank
+- [x] protect entries from being made if fields are blank
+- [x] display warning alert for attempting blank entry
+- [x] display success alert for successful entry
 - [ ] delete entries
 - [ ] select from dropdown
 - [ ] button for selecting the clicked on code snippet
