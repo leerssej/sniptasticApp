@@ -69,9 +69,7 @@ $(document).ready(function () {
     console.dir(e.target)
   // fetch list of keys
   // appendInject them into the dropdown-content class
-    console.dir(getAllKeys().map((name, i) => console.log(injectKey(name, i))));
-  // 
-
+    getAllKeys().map((name, i) => console.log(injectKey(name, i)));
   });
 
   $('.getAll').click(function() { 
