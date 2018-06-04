@@ -1,13 +1,21 @@
+// helper functions
+/// data handling
 const getAllCode = () => Object.values(localStorage);
 const getAllKeys = () => Object.keys(localStorage);
-const cleanSlate = () => {
-  $('.sample').text('');
-  $('.display').text('');
-};
+/// field and display clearing
 const clearFields = () => {
   $('.nameField').val('');
   $('.codeField').val('');
 }
+const clearDropdownList = () => {
+  $('.dropdown-content').text('');
+  $('.codeField').val('');
+}
+const clearCodeDisplay = () => {
+  $('.sample').text('');
+  $('.display').text('');
+};
+/// code injection
 const injectCode = (snippet, i = 0) => {
   $('.display')
     .append(`<code data-id=${i}>${snippet}</code>
@@ -18,9 +26,17 @@ const injectKey = (name, i = 0) => {
     .append(`<div data-id=${i}>${name}</div>`);
 };
 
+/// collect data from local storage
+const getAndDisplayCodebyName = name => {
+  let snippet = localStorage.getItem(name);
+  injectCode(snippet);
+  highlightCode();
+}
+
+/// code markup
 const highlightCode = () => hljs.highlightBlock($('.display').get(0));
 
-// Show Alert
+/// Entry and Action Alert injection
 const showAlert = (message, className) => {
   // Create div
   const div = document.createElement('div');
@@ -41,7 +57,7 @@ const showAlert = (message, className) => {
   }, 1500);
 }
 
-
+// event handlers
 $(document).ready(function () {
 
   $('.setData').click(function() {
@@ -58,22 +74,27 @@ $(document).ready(function () {
   });
 
   $('.getData').click(function() {
-    cleanSlate();
+    clearCodeDisplay();
     let desiredName = $('#nameInputField').val();
-    let snippet = localStorage.getItem(desiredName);
-    injectCode(snippet);
-    highlightCode();
+    getAndDisplayCodebyName(desiredName);
   });
   
-  $('.dropMenu').click(function(e) { 
-    console.dir(e.target)
-  // fetch list of keys
-  // appendInject them into the dropdown-content class
+  $('.dropdownMenu').click(function() { 
+    clearDropdownList();
     getAllKeys().map((name, i) => console.log(injectKey(name, i)));
   });
+  
+  // get menu item
+  $('.dropdown-content').click((e) => {
+    clearCodeDisplay();
+    // get the text from the menu
+    let desiredName = e.target.textContent;
+    getAndDisplayCodebyName(desiredName);
+  })
+  
 
   $('.getAll').click(function() { 
-    cleanSlate();
+    clearCodeDisplay();
     getAllCode().map((snippet, i) => injectCode(snippet, i));
     highlightCode();
   });
