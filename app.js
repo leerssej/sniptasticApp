@@ -13,6 +13,11 @@ const injectCode = (snippet, i = 0) => {
     .append(`<code data-id=${i}>${snippet}</code>
         <br>`);
 };
+const injectKey = (name, i = 0) => {
+  $('.dropdown-content')
+    .append(`<div data-id=${i}>${name}</div>`);
+};
+
 const highlightCode = () => hljs.highlightBlock($('.display').get(0));
 
 // Show Alert
@@ -60,6 +65,15 @@ $(document).ready(function () {
     highlightCode();
   });
   
+  $('.dropMenu').click(function(e) { 
+    console.dir(e.target)
+  // fetch list of keys
+  // appendInject them into the dropdown-content class
+    console.dir(getAllKeys().map((name, i) => console.log(injectKey(name, i))));
+  // 
+
+  });
+
   $('.getAll').click(function() { 
     cleanSlate();
     getAllCode().map((snippet, i) => injectCode(snippet, i));

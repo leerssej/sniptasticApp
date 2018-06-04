@@ -17,6 +17,8 @@ Goals:
 - [x] display warning alert for attempting blank entry
 - [x] display success alert for successful entry
 - [x] delete entries
+
+- [ ] populate dropdown menu on click
 - [ ] select from dropdown
 - [ ] additional fields added for vsCode.json snippet generation
 - [ ] additional right slateSpan added for vsCode.json snippet generation
