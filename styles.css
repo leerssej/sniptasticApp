@@ -1,6 +1,9 @@
 code {
   cursor: pointer;
 }
+.hidden {
+  display: none;
+}
 
 .success,
 .error {

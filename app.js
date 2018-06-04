@@ -50,7 +50,7 @@ const showAlert = (message, className) => {
   const form = document.querySelector('#nameInputField');
   // Insert alert
   container.insertBefore(div, form);
-
+  
   // Timeout after 1.5 sec
   setTimeout(function () {
     document.querySelector('.alert').remove();
@@ -59,7 +59,7 @@ const showAlert = (message, className) => {
 
 // event handlers
 $(document).ready(function () {
-
+  
   $('.setData').click(function() {
     let snippetKey = $('#nameInputField').val();
     let snippetValue = $('#codeInputField').val();
@@ -79,7 +79,8 @@ $(document).ready(function () {
     getAndDisplayCodebyName(desiredName);
   });
   
-  $('.dropdownMenu').click(function() { 
+  $('.dropdownMenu').click(function() {
+    $('.dropdown-content').fadeToggle('.hidden');
     clearDropdownList();
     getAllKeys().map((name, i) => console.log(injectKey(name, i)));
   });
@@ -90,6 +91,7 @@ $(document).ready(function () {
     // get the text from the menu
     let desiredName = e.target.textContent;
     getAndDisplayCodebyName(desiredName);
+    $('.dropdown-content').fadeToggle('.hidden');
   })
   
 
