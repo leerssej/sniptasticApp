@@ -34,73 +34,111 @@ code {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
+
 /*
-Monokai style - ported by Luigi Maselli - http://grigio.org
+
+Railscasts-like style (c) Visoft, Inc. (Damien White)
+
 */
 
 .hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #272822; color: #ddd;
-}
-
-.hljs-tag,
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-strong,
-.hljs-name {
-  color: #f92672;
-}
-
-.hljs-code {
-  color: #66d9ef;
-}
-
-.hljs-class .hljs-title {
-  color: white;
-}
-
-.hljs-attribute,
-.hljs-symbol,
-.hljs-regexp,
-.hljs-link {
-  color: #bf79db;
-}
-
-.hljs-string,
-.hljs-bullet,
-.hljs-subst,
-.hljs-title,
-.hljs-section,
-.hljs-emphasis,
-.hljs-type,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-addition,
-.hljs-variable,
-.hljs-template-tag,
-.hljs-template-variable {
-  color: #a6e22e;
+  background: #232323;
+  color: #e6e1dc;
 }
 
 .hljs-comment,
-.hljs-quote,
-.hljs-deletion,
-.hljs-meta {
-  color: #75715e;
+.hljs-quote {
+  color: #bc9458;
+  font-style: italic;
 }
 
 .hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-doctag,
+.hljs-selector-tag {
+  color: #c26230;
+}
+
+.hljs-string,
+.hljs-number,
+.hljs-regexp,
+.hljs-variable,
+.hljs-template-variable {
+  color: #a5c261;
+}
+
+.hljs-subst {
+  color: #519f50;
+}
+
+.hljs-tag,
+.hljs-name {
+  color: #e8bf6a;
+}
+
+.hljs-type {
+  color: #da4939;
+}
+
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-attr,
+.hljs-link {
+  color: #6d9cbe;
+}
+
+.hljs-params {
+  color: #d0d0ff;
+}
+
+.hljs-attribute {
+  color: #cda869;
+}
+
+.hljs-meta {
+  color: #9b859d;
+}
+
 .hljs-title,
-.hljs-section,
-.hljs-type,
+.hljs-section {
+  color: #ffc66d;
+}
+
+.hljs-addition {
+  background-color: #144212;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-deletion {
+  background-color: #600;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-selector-class {
+  color: #9b703f;
+}
+
 .hljs-selector-id {
+  color: #8b98ab;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
   font-weight: bold;
 }
+
+.hljs-link {
+  text-decoration: underline;
+}
+
