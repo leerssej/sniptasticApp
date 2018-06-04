@@ -11,17 +11,19 @@
 <body>
 
   <div class="formContainer">
-    <input class="nameField" type="text" id="nameInputField">
-    <br>
     <span class="dropdown">
       <button class="dropdownMenu">List of Snippets</button>
       <div class="dropdown-content hidden" id="myDropdown">
       </div>
     </span>
-    <button class="setData">Click to save snippet</button>
-    <button class="getData">Click to get snippet</button>
+    <input class="nameField" type="text" id="nameInputField">
     <button class="getAll">Click to view all snippets</button>
-    <button class="deleteData">Click to delete snippet</button>
+    <br>
+    <div class="crudButtonContainer hidden">
+      <button class="setData">Click to save snippet</button>
+      <button class="getData">Click to fetch snippet</button>
+      <button class="deleteData">Click to delete snippet</button>
+    </div>
     <br>
     <textarea class="codeField" id="codeInputField"></textarea>
   </div>
@@ -46,14 +48,21 @@
       <input class="descriptionField" type="text" id="descriptionInputField">
     </div>
     <br>
+    <div>
+
+    </div>
+    <label for="sample-json">VSCode Snippet Building Transformer Code</label>
     <pre class="display">
-        <code class="sample" >
-        "bulkhead": {
-          "prefix": "bulkhead",
-            "body": [
-              "// ********* $0 ********",
+      <code class="sample" >
+        "greet": {
+          "prefix": "sayHello",
+          "body": [
+          "function sayHello(name) {
+                 return `Hi ${name}!` ;
+              }
+              ",
             ],
-            "description": "separate major sections"
+            "description": "A friendly way to acknowledge someone: often used to initiate a conversation."
         },
         </code>
       </pre>

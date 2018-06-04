@@ -60,6 +60,7 @@ const showAlert = (message, className) => {
 // event handlers
 $(document).ready(function () {
   
+  // Create entry
   $('.setData').click(function() {
     let snippetKey = $('#nameInputField').val();
     let snippetValue = $('#codeInputField').val();
@@ -73,19 +74,21 @@ $(document).ready(function () {
     }
   });
 
+  // fetch entry from textbox by button click
   $('.getData').click(function() {
     clearCodeDisplay();
     let desiredName = $('#nameInputField').val();
     getAndDisplayCodebyName(desiredName);
   });
-  
+
+  // offer menu of entries that can be retrieved
   $('.dropdownMenu').click(function() {
     $('.dropdown-content').fadeToggle('.hidden');
     clearDropdownList();
     getAllKeys().map((name, i) => console.log(injectKey(name, i)));
   });
-  
-  // get menu item
+
+  // fetch menu item by dropdown menu item click
   $('.dropdown-content').click((e) => {
     clearCodeDisplay();
     // get the text from the menu
@@ -93,14 +96,15 @@ $(document).ready(function () {
     getAndDisplayCodebyName(desiredName);
     $('.dropdown-content').fadeToggle('.hidden');
   })
-  
 
+  // fetch all code snippets stored in localstorage
   $('.getAll').click(function() { 
     clearCodeDisplay();
     getAllCode().map((snippet, i) => injectCode(snippet, i));
     highlightCode();
   });
-  
+
+  // remove data stored in localstorage
   $('.deleteData').click(function() {
     let desiredName = $('#nameInputField').val();
     let snippet = localStorage.getItem(desiredName);
@@ -114,10 +118,11 @@ $(document).ready(function () {
     }
   });
 
+  // get id of clicked entry
   $('.viewContainer').click(function(e) { 
     let targetDataId;
     if (e.target.closest("code")) {
-      targetDataId = e.target.closest("code").attributes["0"].nodeValue;
+      targetDataId = e.target.closest("code").attributes["data-id"].value;
     }
     if (targetDataId) {
       console.dir(targetDataId)
