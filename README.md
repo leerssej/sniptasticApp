@@ -1,18 +1,22 @@
 # myCruddyApp
 CrUD Create Update Delete App
 
+found on repl.it here:
+https://sniptastic--JensLeerssen.repl.co
 
 ## Goals:
 
-### Part One+
+### Part One
 - [x] Input form with single text input
 - [x] click handler to capture data in text form field
 - [x] helper utilities to read and write to local storage
 - [x] Make it handle code! (use a textarea instead of a text)
 - [x] Have two fields, one is a short name the other is the snippet
-- [x] going to store the name and code inside localStorage
+- [x] store the name and code inside localStorage
 - [x] display all snippets
 - [x] search for a snippet using the name
+
+### Part One+
 - [x] protect entries from being made if fields are blank
 - [x] display warning alert for attempting blank entry
 - [x] display success alert for successful entry
@@ -25,7 +29,8 @@ CrUD Create Update Delete App
 
 ### Part Two
 #### Basic Requirements
-- [ ] host app on repl.it
+- [x] host app on repl.it
+  * https://sniptastic--jensleerssen.repl.co/
 - [ ] Expand on the UI/UX making it look like a nice modern web app. 
     - [ ] consistent layout, styled throughout with a 
     - [ ] pleasing color scheme.
