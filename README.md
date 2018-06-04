@@ -18,11 +18,15 @@ Goals:
 - [x] delete entries
 - [x] populate dropdown menu on click
 - [x] select from dropdown
+- [x] additional fields added for vsCode.json snippet generation
+- [x] additional right slateSpan added for vsCode.json snippet generation
 
-- [ ] additional fields added for vsCode.json snippet generation
-- [ ] additional right slateSpan added for vsCode.json snippet generation
+- [ ] transformation template for code snippet
 - [ ] button for transforming the clicked on code snippet
-- [ ] mouseup transformation into vsCode snippet syntax
+- [ ] keyup hottransformation into vsCode snippet syntax
+
 - [ ] right click for copy of code transform
 - [ ] formatting upgrade
 - [ ] UI styling
+- [ ] storage of json version and regular snippet (active|inactive~&~json|code~&~name)
+- [ ] delete version of regular snippet (active|inactive~&~)
