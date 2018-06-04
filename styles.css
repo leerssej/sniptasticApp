@@ -1,9 +1,17 @@
 code {
   cursor: pointer;
 }
+#codeInputField {
+  width: 50ch;
+  height: 10ch;
+}
+.nameField {
+  width: 20ch;
+}
 .hidden {
   display: none;
 }
+
 
 .success,
 .error {

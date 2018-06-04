@@ -9,6 +9,7 @@
   <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
+
   <div class="formContainer">
     <input class="nameField" type="text" id="nameInputField">
     <br>
@@ -22,8 +23,9 @@
     <button class="getAll">Click to view all snippets</button>
     <button class="deleteData">Click to delete snippet</button>
     <br>
-    <textarea class="codeField" id="codeInputField" cols="50" rows="5"></textarea>
+    <textarea class="codeField" id="codeInputField"></textarea>
   </div>
+
   <div class="viewContainer">
     <pre class="display">
       <code class="sample" >
@@ -33,5 +35,29 @@
       </code>
     </pre>
   </div>
+
+  <div class="conversionContainer">
+    <div>
+      <label for="author">Intellij Lookup Name</label>
+      <input class="nameField" type="text" id="intellinameInputField">
+    </div>
+    <div>
+      <label for="author">Description</label>
+      <input class="descriptionField" type="text" id="descriptionInputField">
+    </div>
+    <br>
+    <pre class="display">
+        <code class="sample" >
+        "bulkhead": {
+          "prefix": "bulkhead",
+            "body": [
+              "// ********* $0 ********",
+            ],
+            "description": "separate major sections"
+        },
+        </code>
+      </pre>
+  </div>
+
 </body>
 </html>
