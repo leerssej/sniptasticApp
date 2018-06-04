@@ -2,9 +2,9 @@
 CrUD Create Update Delete App
 
 
-Goals:
+## Goals:
 
-# Part One+
+### Part One+
 - [x] Input form with single text input
 - [x] click handler to capture data in text form field
 - [x] helper utilities to read and write to local storage
@@ -23,19 +23,19 @@ Goals:
 - [x] additional right slateSpan added for vsCode.json snippet generation
 
 
-# Part Two
-## Basic Requirements
+### Part Two
+#### Basic Requirements
 - [ ] host app on repl.it
 - [ ] Expand on the UI/UX making it look like a nice modern web app. 
     - [ ] consistent layout, styled throughout with a 
     - [ ] pleasing color scheme.
 
-## Advanced Content
+#### Advanced Content
 - [ ] convert to ES6
 - [ ] convert to ES6 classes or pseudoclassical pattern
 
-#Part Two+
-## Extra
+### Part Two+
+#### Extra
 - [ ] transformation template for code snippet
 - [ ] button for transforming the clicked on code snippet
 - [ ] keyup hottransformation into vsCode snippet syntax
