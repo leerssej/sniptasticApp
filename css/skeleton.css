@@ -125,7 +125,8 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #rgba(169, 169, 169, 0.78); }
+  background-color: rgba(10, 10, 10, 0.507)
+}
 
 
 /* Typography
@@ -242,7 +243,8 @@ select {
   border: 1px solid rgba(169, 169, 169, 0.603);
   border-radius: 4px;
   box-shadow: #ad13d3ad 1px 1px 10px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 /* Removes awkward default styles on some inputs for iOS */
 input[type="email"],
 input[type="number"],
@@ -258,7 +260,16 @@ textarea {
 textarea {
   min-height: 65px;
   padding-top: 6px;
-  /* padding-bottom: 6px;  */
+  padding-bottom: 6px;
+  height: 26px;
+  padding: 4px 8px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  color: rgba(169, 169, 169, 0.78);
+  background-color: rgba(74, 49, 105, 0.333
+);
+  border: 1px solid rgba(169, 169, 169, 0.603);
+  border-radius: 4px;
+  box-shadow: #ad13d3ad 1px 1px 10px;
+  box-sizing: border-box;
 }
 input[type="email"]:focus,
 input[type="number"]:focus,
@@ -358,7 +369,7 @@ p,
 ul,
 ol,
 form {
-  margin-bottom: 2.5rem; }
+  margin-bottom: 1.25rem; }
 
 
 /* Utilities

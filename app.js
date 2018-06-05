@@ -24,8 +24,7 @@ const toggleDirectCrudButtons = () => {
 /// code injection
 const injectCode = (snippet, i = 0) => {
   $('.display')
-    .append(`<code data-id=${i}>${snippet}</code>
-        <br>`);
+    .append(`<code data-id=${i}>${snippet}</code>`);
 };
 const injectKey = (name, i = 0) => {
   $('.dropdown-content')
