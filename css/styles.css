@@ -30,24 +30,36 @@ textarea {
   box-shadow: #ad13d3ad 1px 1px 10px;
 }
 button {
-  background-color: rgba(169, 169, 169, 0.603);
-  box-shadow: #ac13d3 2px 2px 5px;
-  border-radius: 4pt;
   font-family: 'Source Code Pro', monospace;
-  /* font-family: 'Orbitron', sans-serif; */
-  /* font-family: 'Russo One', sans-serif; */
-  /* font-family: 'Rajdhani', sans-serif; */
   font-family: 'Doppio One', sans-serif;
+  border-radius: 4pt;
+  box-shadow: #ac13d3 2px 2px 5px;
   padding: 0 15px 0 15px;
   margin-bottom: 2px;
 }
 .nameField {
   width: 19ch;
-  background-color:rgb(169, 169, 169);
-  box-shadow:rgb(169, 169, 169) 5px 5px 3px;
 }
 .dropdownMenu {
   width: 19ch;
+}
+.dropdown-content {
+  position: absolute;
+  background: #0f0f0f;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 0 0 5px 5px;
+}
+.keys {
+  padding-left: 15px;
+  border-radius: 5px;
+  color: rgba(169, 169, 169, 0.78);
+  font-family: 'Source Code Pro', monospace;
+}
+.keys:hover {
+  box-shadow: #ad13d3ad 1px 1px 10px;
+  color: #d313b9;
 }
 .display {
   width:80ch;
@@ -90,22 +102,6 @@ code {
 }  
 
 /* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  position: absolute;
-  background: #0f0f0f;
-  min-width: 150px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-radius: 0 0 5px 5px;
-}
-.keys {
-  padding-left: 15px;
-  box-radius: 3px; 
-}
-.keys:hover {
-  box-shadow: #ad13d3ad 1px 1px 10px;
-  color: #d313b9;
-}
 
 /*
 
