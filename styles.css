@@ -1,17 +1,66 @@
-code {
-  cursor: pointer;
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  font-size: 30pt;
+  color: #cac1ce;
+  text-shadow: #ac13d3 3px 3px 6px;
+  margin: 15px;
 }
-#codeInputField {
-  width: 50ch;
-  height: 10ch;
+body {
+  background-image: url("images/blackWhiteDeathStar.png");
+  background-size: cover;
+  color: #8b98ab;
+  /* font-family: 'Source Code Pro', monospace;
+  font-family: 'Russo One', sans-serif;
+  font-family: 'Rajdhani', sans-serif; */
+  font-family: 'Doppio One', sans-serif;
+}
+
+
+input {
+  background-color: #b7bbf79a;
+  border-radius: 2pt;
+}
+textarea {
+  background-color: #b7bbf76e;
+  border-radius: 2pt;
+  box-shadow: #ad13d3ad 1px 1px 10px;
+}
+button {
+  background-color: #d6d0d6e5;
+  box-shadow: #ac13d3 2px 2px 5px;
+  border-radius: 4pt;
+  font-family: 'Source Code Pro', monospace;
+  /* font-family: 'Orbitron', sans-serif; */
+  /* font-family: 'Russo One', sans-serif; */
+  /* font-family: 'Rajdhani', sans-serif; */
+  font-family: 'Doppio One', sans-serif;
+  padding: 0 15px 0 15px;
+  margin-bottom: 2px;
 }
 .nameField {
-  width: 20ch;
+  width: 19ch;
+}
+.dropdownMenu {
+  width: 19ch;
+}
+.display {
+  width:80ch;
+  visibility: visible;
+  border-radius: 2pt;
 }
 .hidden {
   display: none;
 }
-
+.setData {
+  background-color: #519f50;
+}
+.getData {
+  background-color: #e8bf6a;
+}
+.deleteData {
+  background-color: #da4939;
+}
 
 .success,
 .error {
@@ -20,19 +69,37 @@ code {
   margin: 5px 0 15px 0;
 } 
 .success { 
-  background: green;
+  background: #519f50;
 } 
 .error {
-  background: red;
+  background: #da4939;
 }
+
+code {
+  cursor: pointer;
+  background-color: #0f0f0f;
+}  
+#codeInputField {
+  width: 50ch;
+  height: 10ch;
+}  
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  position: absolute;
+  background: #0f0f0f;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 0 0 5px 5px;
+}
+.keys {
+  padding-left: 15px;
+  box-radius: 3px; 
+}
+.keys:hover {
+  box-shadow: #ad13d3ad 1px 1px 10px;
+  color: #d313b9;
 }
 
 /*
@@ -45,7 +112,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #232323;
+  background: #0f0f0f;
   color: #e6e1dc;
 }
 

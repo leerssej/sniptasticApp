@@ -15,6 +15,12 @@ const clearCodeDisplay = () => {
   $('.sample').text('');
   $('.display').text('');
 };
+// button reveal and hide management
+const toggleDirectCrudButtons = () => {
+  $('.directCrudButtonContainer').fadeToggle('.hidden');
+  $('.indirectCrudButton').fadeToggle('.hidden');
+}
+
 /// code injection
 const injectCode = (snippet, i = 0) => {
   $('.display')
@@ -23,7 +29,7 @@ const injectCode = (snippet, i = 0) => {
 };
 const injectKey = (name, i = 0) => {
   $('.dropdown-content')
-    .append(`<div data-id=${i}>${name}</div>`);
+    .append(`<div class="keys" data-id=${i}>${name}</div>`);
 };
 
 /// collect data from local storage
@@ -130,6 +136,26 @@ $(document).ready(function () {
       console.log('please click on the code!')
     }
   });
+
+  // shift to directCrudButtons
+  $('.nameField').focusin(function() { 
+    $('.directCrudButtonContainer').fadeToggle('.display');
+    $('.indirectCrudButton').fadeToggle('.display');
+  });
+  // shift to indirectCrudButtons
+  $('.nameField').focusout(function() { 
+    $('.directCrudButtonContainer').fadeToggle('.hidden');
+    $('.indirectCrudButton').fadeToggle('.hidden');
+  });
+  // // reveal directCrUD buttons upon entering namefield
+  // $('.nameField').focus(function () {
+  //   toggleDirectCrudButtons();
+  // });
+
+  //hide directCrUD buttons upon mouseout of namefield
+  // $('.nameField').mouseout(function() { 
+  //   toggleDirectCrudButtons();
+  // });
 
 });
 

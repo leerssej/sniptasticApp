@@ -1,28 +1,33 @@
 <!DOCTYPE html>
+
 <head>
   <meta charset="UTF-8">
-  <title>sniptasticApp</title>
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  <link rel="stylesheet" href="styles.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+<link href="https://fonts.googleapis.com/css?family=Doppio+One|Orbitron|Rajdhani:500|Russo+One|Source+Code+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <script src="app.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+  <title>sniptasticApp</title>
 </head>
-<body>
 
+<body>
+  <h1>sniptastic</h1>
   <div class="formContainer">
     <span class="dropdown">
-      <button class="dropdownMenu">List of Snippets</button>
+      <button class="dropdownMenu indirectCrudButton">List of Snippets</button>
+      <button class="getAll indirectCrudButton">View All Saved Snippet Code</button>
+      <br>
       <div class="dropdown-content hidden" id="myDropdown">
       </div>
     </span>
     <input class="nameField" type="text" id="nameInputField">
-    <button class="getAll">Click to view all snippets</button>
     <br>
-    <div class="crudButtonContainer hidden">
-      <button class="setData">Click to save snippet</button>
-      <button class="getData">Click to fetch snippet</button>
-      <button class="deleteData">Click to delete snippet</button>
+    <div class="directCrudButtonContainer hidden">
+      <button class="setData">Save</button>
+      <button class="getData">Fetch</button>
+      <button class="deleteData">Delete</button>
     </div>
     <br>
     <textarea class="codeField" id="codeInputField"></textarea>
@@ -62,11 +67,13 @@
               }
               ",
             ],
-            "description": "A friendly way to acknowledge someone: often used to initiate a conversation."
+            "description": "A friendly way to acknowledge someone: 
+            often used to initiate a conversation."
         },
         </code>
       </pre>
   </div>
 
 </body>
+
 </html>
