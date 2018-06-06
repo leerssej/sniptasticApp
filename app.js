@@ -1,9 +1,26 @@
-// helper functions
-// UI Constructor
-function snippetLibrary(name, code, prefix, descrip) {}
+// function storage constructor
+// function UI() {};
+// const ui = new UI();
 
+
+// library storage constructor
+function SniptasticLibrary(localStorage) {
+  this.localStorage = localStorage;
+  // this.allcode = SniptasticLibrary.getAllCode(localStorage);
+}
+
+// helper functions
 /// data handling
-const getAllCode = () => Object.values(localStorage);
+SniptasticLibrary.prototype.getAllCode = function() {Object.values(this.localStorage)}
+
+const newSnipLib = new SniptasticLibrary(localStorage)
+console.log(newSnipLib);
+console.log(SniptasticLibrary.prototype.getAllCode);
+// console.log(UI);
+
+console.log(newSnipLib.getAllCode());
+
+
 const getAllKeys = () => Object.keys(localStorage);
 /// field and display clearing
 const clearFields = () => {
@@ -43,6 +60,7 @@ const getAndDisplayCodebyName = name => {
 
 /// code markup
 const highlightCode = () => hljs.highlightBlock($('.display').get(0));
+
 
 /// Entry and Action Alert injection in vanillaJS 
 //// (from Traversy, B. "Modern Javascript from the Beginning" hosted on udemy.com)
@@ -113,8 +131,11 @@ $(document).ready(() => {
 
   // fetch all code snippets stored in localstorage
   $('.getAll').click(() => { 
+    // console.dir(getAllCode);
+    console.dir(SniptasticLibrary);
+    console.dir(newSnipLib);
     clearCodeDisplay();
-    getAllCode().map((snippet, i) => injectCode(snippet, i));
+    newSnipLib.getAllCode().map((snippet, i) => injectCode(snippet, i));
     highlightCode();
   });
 
