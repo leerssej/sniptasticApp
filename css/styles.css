@@ -101,8 +101,13 @@ code {
   width: 50ch;
   height: 10ch;
 }  
-
-/* Dropdown Content (Hidden by Default) */
+/* vsCode.JSON converter */
+.prefixField {
+  width: 18ch;
+}
+.descriptionField {
+  width: 30ch;
+}
 
 /*
 

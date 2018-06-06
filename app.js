@@ -1,4 +1,7 @@
 // helper functions
+// UI Constructor
+function snippetLibrary(name, code, prefix, descrip) {}
+
 /// data handling
 const getAllCode = () => Object.values(localStorage);
 const getAllKeys = () => Object.keys(localStorage);
