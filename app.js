@@ -6,19 +6,19 @@
 // library storage constructor
 function SniptasticLibrary(localStorage) {
   this.localStorage = localStorage;
-  // this.allcode = SniptasticLibrary.getAllCode(localStorage);
+  // this.allcode = SniptasticLibrary.prototype.getAllCode(localStorage);
 }
 
 // helper functions
 /// data handling
-SniptasticLibrary.prototype.getAllCode = function() {Object.values(this.localStorage)}
+SniptasticLibrary.prototype.getAllCode = () => Object.values(this.localStorage)
 
 const newSnipLib = new SniptasticLibrary(localStorage)
-console.log(newSnipLib);
-console.log(SniptasticLibrary.prototype.getAllCode);
-// console.log(UI);
+// console.log(newSnipLib);
+// console.dir(SniptasticLibrary.prototype.getAllCode);
+// // console.log(UI);
 
-console.log(newSnipLib.getAllCode());
+// console.log(newSnipLib.getAllCode());
 
 
 const getAllKeys = () => Object.keys(localStorage);
