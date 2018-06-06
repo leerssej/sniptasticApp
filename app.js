@@ -41,7 +41,8 @@ const getAndDisplayCodebyName = name => {
 /// code markup
 const highlightCode = () => hljs.highlightBlock($('.display').get(0));
 
-/// Entry and Action Alert injection
+/// Entry and Action Alert injection in vanillaJS 
+//// (from Traversy, B. "Modern Javascript from the Beginning" hosted on udemy.com)
 const showAlert = (message, className) => {
   // Create div
   const div = document.createElement('div');
@@ -57,16 +58,16 @@ const showAlert = (message, className) => {
   container.insertBefore(div, form);
   
   // Timeout after 1.5 sec
-  setTimeout(function () {
+  setTimeout(() => {
     document.querySelector('.alert').remove();
   }, 1500);
 }
 
 // event handlers
-$(document).ready(function () {
+$(document).ready(() => {
   
   // Create entry
-  $('.setData').click(function() {
+  $('.setData').click(() => {
     let snippetKey = $('#nameInputField').val();
     let snippetValue = $('#codeInputField').val();
     // Validate
@@ -80,14 +81,14 @@ $(document).ready(function () {
   });
 
   // fetch entry from textbox by button click
-  $('.getData').click(function() {
+  $('.getData').click(() => {
     clearCodeDisplay();
     let desiredName = $('#nameInputField').val();
     getAndDisplayCodebyName(desiredName);
   });
 
   // offer menu of entries that can be retrieved
-  $('.dropdownMenu').click(function() {
+  $('.dropdownMenu').click(() => {
     $('.dropdown-content').fadeToggle('.hidden');
     clearDropdownList();
     getAllKeys().map((name, i) => console.log(injectKey(name, i)));
@@ -100,17 +101,22 @@ $(document).ready(function () {
     let desiredName = e.target.textContent;
     getAndDisplayCodebyName(desiredName);
     $('.dropdown-content').fadeToggle('.hidden');
+    $('#nameInputField').val(desiredName);
+    // get code dictionary
+    const codeObj = localStorage;
+    // post value into textArea
+    $('#codeInputField').val(codeObj[desiredName]);
   })
 
   // fetch all code snippets stored in localstorage
-  $('.getAll').click(function() { 
+  $('.getAll').click(() => { 
     clearCodeDisplay();
     getAllCode().map((snippet, i) => injectCode(snippet, i));
     highlightCode();
   });
 
   // remove data stored in localstorage
-  $('.deleteData').click(function() {
+  $('.deleteData').click(() => {
     let desiredName = $('#nameInputField').val();
     let snippet = localStorage.getItem(desiredName);
     // Validate available 
@@ -124,37 +130,37 @@ $(document).ready(function () {
   });
 
   // get id of clicked entry
-  $('.viewContainer').click(function(e) { 
+  $('.viewContainer').click((e) => { 
     let targetDataId;
     if (e.target.closest("code")) {
       targetDataId = e.target.closest("code").attributes["data-id"].value;
     }
+    // debugging the code click calls
     if (targetDataId) {
       console.dir(targetDataId)
     } else {
       console.log('please click on the code!')
     }
+    // create array of all keys
+    const keyArr = getAllKeys();
+    // post value at index into namefield
+    $('#nameInputField').val(keyArr[targetDataId]);
+    // create array of all code
+    const codeArr = getAllCode();
+    // post value at index into textArea
+    $('#codeInputField').val(codeArr[targetDataId]);
   });
 
   // shift to directCrudButtons
-  $('.nameField').focusin(function() { 
+  $('.nameField').focusin(() => { 
     $('.directCrudButtonContainer').fadeToggle('.display');
     $('.indirectCrudButton').fadeToggle('.display');
   });
   // shift to indirectCrudButtons
-  $('.nameField').focusout(function() { 
+  $('.nameField').focusout(() => { 
     $('.directCrudButtonContainer').fadeToggle('.hidden');
     $('.indirectCrudButton').fadeToggle('.hidden');
   });
-  // // reveal directCrUD buttons upon entering namefield
-  // $('.nameField').focus(function () {
-  //   toggleDirectCrudButtons();
-  // });
-
-  //hide directCrUD buttons upon mouseout of namefield
-  // $('.nameField').mouseout(function() { 
-  //   toggleDirectCrudButtons();
-  // });
 
 });
 

@@ -31,22 +31,23 @@ https://sniptastic--JensLeerssen.repl.co
 #### Basic Requirements
 - [x] host app on repl.it
   * https://sniptastic--jensleerssen.repl.co/
-- [ ] Expand on the UI/UX making it look like a nice modern web app. 
-    - [ ] consistent layout, styled throughout with a 
-    - [ ] pleasing color scheme.
+- [x] Expand on the UI/UX making it look like a nice modern web app. 
+    - [x] consistent layout, styled throughout with a 
+    - [x] pleasing color scheme.
 
 #### Advanced Content
-- [ ] convert to ES6
+- [x] convert to ES6
 - [ ] convert to ES6 classes or pseudoclassical pattern
 
 ### Part Two+
 #### Extra
+- [ ] expand text entry area as more code is added
 - [ ] transformation template for code snippet
 - [ ] button for transforming the clicked on code snippet
 - [ ] keyup hottransformation into vsCode snippet syntax
 
 - [ ] right click for copy of code transform
-- [ ] formatting upgrade
-- [ ] UI styling
+- [x] formatting upgrade
+- [x] UI styling
 - [ ] storage of json version and regular snippet (active|inactive~&~json|code~&~name)
 - [ ] delete version of regular snippet (active|inactive~&~)
