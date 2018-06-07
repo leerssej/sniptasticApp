@@ -4,67 +4,67 @@
 
 
 // library storage constructor
-function SniptasticLibrary(localStorage) {
+function UI(localStorage) {
   this.localStorage = localStorage;
-  // this.allcode = SniptasticLibrary.prototype.getAllCode(localStorage);
+  // this.allcode = UI.prototype.getAllCode(localStorage);
 }
 
 // helper functions
 /// data handling
-SniptasticLibrary.prototype.getAllCode = () => Object.values(this.localStorage)
+UI.prototype.getAllCode = () => Object.values(this.localStorage);
+UI.prototype.getAllKeys = () => Object.keys(localStorage);
 
-const newSnipLib = new SniptasticLibrary(localStorage)
+const ui = new UI(localStorage);
 // console.log(newSnipLib);
-// console.dir(SniptasticLibrary.prototype.getAllCode);
+// console.dir(UI.prototype.getAllCode);
 // // console.log(UI);
 
 // console.log(newSnipLib.getAllCode());
 
 
-const getAllKeys = () => Object.keys(localStorage);
 /// field and display clearing
-const clearFields = () => {
+UI.prototype.clearFields = () => {
   $('.nameField').val('');
   $('.codeField').val('');
 }
-const clearDropdownList = () => {
+UI.prototype.clearDropdownList = () => {
   $('.dropdown-content').text('');
   $('.codeField').val('');
 }
-const clearCodeDisplay = () => {
+UI.prototype.clearCodeDisplay = () => {
   $('.sample').text('');
   $('.display').text('');
 };
 // button reveal and hide management
-const toggleDirectCrudButtons = () => {
+UI.prototype.toggleDirectCrudButtons = () => {
   $('.directCrudButtonContainer').fadeToggle('.hidden');
   $('.indirectCrudButton').fadeToggle('.hidden');
 }
 
 /// code injection
-const injectCode = (snippet, i = 0) => {
+UI.prototype.injectCode = (snippet, i = 0) => {
   $('.display')
     .append(`<code data-id=${i}>${snippet}</code>`);
 };
-const injectKey = (name, i = 0) => {
+UI.prototype.injectKey = (name, i = 0) => {
   $('.dropdown-content')
     .append(`<div class="keys" data-id=${i}>${name}</div>`);
 };
 
 /// collect data from local storage
-const getAndDisplayCodebyName = name => {
+UI.prototype.getAndDisplayCodebyName = name => {
   let snippet = localStorage.getItem(name);
-  injectCode(snippet);
-  highlightCode();
+  ui.injectCode(snippet);
+  ui.highlightCode();
 }
 
 /// code markup
-const highlightCode = () => hljs.highlightBlock($('.display').get(0));
+UI.prototype.highlightCode = () => hljs.highlightBlock($('.display').get(0));
 
 
 /// Entry and Action Alert injection in vanillaJS 
 //// (from Traversy, B. "Modern Javascript from the Beginning" hosted on udemy.com)
-const showAlert = (message, className) => {
+UI.prototype.showAlert = (message, className) => {
   // Create div
   const div = document.createElement('div');
   // Add classes
@@ -96,31 +96,31 @@ $(document).ready(() => {
       showAlert('Please fill in all fields', 'error');
     } else {
       localStorage.setItem(snippetKey, snippetValue);
-      showAlert('Snippet Added!', 'success');
-      clearFields();
+      ui.showAlert('Snippet Added!', 'success');
+      ui.clearFields();
     }
   });
 
   // fetch entry from textbox by button click
   $('.getData').click(() => {
-    clearCodeDisplay();
+    ui.clearCodeDisplay();
     let desiredName = $('#nameInputField').val();
-    getAndDisplayCodebyName(desiredName);
+    ui.getAndDisplayCodebyName(desiredName);
   });
 
   // offer menu of entries that can be retrieved
   $('.dropdownMenu').click(() => {
     $('.dropdown-content').fadeToggle('.hidden');
-    clearDropdownList();
-    getAllKeys().map((name, i) => console.log(injectKey(name, i)));
+    ui.clearDropdownList();
+    ui.getAllKeys().map((name, i) => ui.injectKey(name, i));
   });
 
   // fetch menu item by dropdown menu item click
   $('.dropdown-content').click((e) => {
-    clearCodeDisplay();
+    ui.clearCodeDisplay();
     // get the text from the menu
     let desiredName = e.target.textContent;
-    getAndDisplayCodebyName(desiredName);
+    ui.getAndDisplayCodebyName(desiredName);
     $('.dropdown-content').fadeToggle('.hidden');
     $('#nameInputField').val(desiredName);
     // get code dictionary
@@ -132,11 +132,11 @@ $(document).ready(() => {
   // fetch all code snippets stored in localstorage
   $('.getAll').click(() => { 
     // console.dir(getAllCode);
-    console.dir(SniptasticLibrary);
-    console.dir(newSnipLib);
-    clearCodeDisplay();
-    newSnipLib.getAllCode().map((snippet, i) => injectCode(snippet, i));
-    highlightCode();
+    console.dir(UI);
+    console.dir(ui);
+    ui.clearCodeDisplay();
+    ui.getAllCode().map((snippet, i) => ui.injectCode(snippet, i));
+    ui.highlightCode();
   });
 
   // remove data stored in localstorage
@@ -145,11 +145,11 @@ $(document).ready(() => {
     let snippet = localStorage.getItem(desiredName);
     // Validate available 
     if (desiredName === '' || !snippet ) {
-      showAlert('Not Found', 'error');
+      ui.showAlert('Not Found', 'error');
     } else {
       localStorage.removeItem(desiredName);
-      showAlert('Snippet removed!', 'success');
-      clearFields();
+      ui.showAlert('Snippet removed!', 'success');
+      ui.clearFields();
     }
   });
 
@@ -166,11 +166,11 @@ $(document).ready(() => {
       console.log('please click on the code!')
     }
     // create array of all keys
-    const keyArr = getAllKeys();
+    const keyArr = ui.getAllKeys();
     // post value at index into namefield
     $('#nameInputField').val(keyArr[targetDataId]);
     // create array of all code
-    const codeArr = getAllCode();
+    const codeArr = ui.getAllCode();
     // post value at index into textArea
     $('#codeInputField').val(codeArr[targetDataId]);
   });
