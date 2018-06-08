@@ -216,3 +216,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   text-decoration: underline;
 }
 
+footer {
+  padding-top: 350px;
+
+}
