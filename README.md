@@ -38,7 +38,7 @@ https://sniptastic--JensLeerssen.repl.co
 #### Advanced Content
 - [x] convert to ES6
 - [x] convert to pseudoclassical pattern
-- [ ] convert to ES6 classes
+- [x] convert to ES6 classes
 
 ### Part Two+
 #### Extra
