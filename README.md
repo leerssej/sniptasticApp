@@ -37,11 +37,15 @@ https://sniptastic--JensLeerssen.repl.co
 
 #### Advanced Content
 - [x] convert to ES6
-- [ ] convert to ES6 classes or pseudoclassical pattern
+- [x] convert to pseudoclassical pattern
+- [ ] convert to ES6 classes
 
 ### Part Two+
 #### Extra
+- [ ] when clicking ALL then clear the text boxes and hide the drop down menu if it is displaying
+- [ ] expand text area to 80 or 100
 - [ ] expand text entry area as more code is added
+- [ ] make text displays wrap around when longer then width of text display box
 - [ ] transformation template for code snippet
 - [ ] button for transforming the clicked on code snippet
 - [ ] keyup hottransformation into vsCode snippet syntax
